@@ -1,4 +1,44 @@
-.app {
-  margin-top: 20px;
-  margin-bottom: 20px;
+body {
+  background: #F4F4F4;
+}
+
+.cars-index {
+  display: flex;
+  height: 100vh;
+
+  .garage-presentation {
+    flex: 1;
+    background: white;
+
+    &-img {
+      height: 150px;
+      background: gray;
+    }
+
+    &-content {
+      padding: 25px;
+    }
+  }
+
+  .cars-list {
+    flex: 3;
+    background: #DBDBDB;
+
+    .car {
+      display: flex;
+      margin: 10px;
+      background: white;
+
+      &-img {
+        width: 150px;
+        height: 150px;
+        background: gray;
+      }
+
+      &-content {
+        padding: 50px;
+        display: flex;
+      }
+    }
+  }
 }

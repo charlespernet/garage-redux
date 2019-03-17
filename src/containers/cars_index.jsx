@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class CarsIndex extends Component {
   static defaultProps = {
@@ -12,16 +13,43 @@ class CarsIndex extends Component {
 
   buildCar(car) {
     return(
-      <div key={car.id}>
-        <p>{car.brand}</p>
-        <p>{car.model}</p>
+      <div className='car' key={car.id}>
+        <div className="car-img"></div>
+        <div className="car-content">
+          <p>{car.brand}</p>
+          <p>{car.model}</p>
+        </div>
       </div>
     )
   }
 
   render() {
-    return this.props.cars.map(this.buildCar);
+    return (
+      <div className="cars-index">
+        <div className="garage-presentation">
+          <div className="garage-presentation-img"></div>
+          <div className="garage-presentation-content">
+            <h3>{this.props.garageName}</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Incidunt mollitia perferendis consequuntur, delectus dolore ex nesciunt
+              fugit ipsa quod repellendus! Cupiditate voluptas voluptatum quae consequuntur
+              consectetur molestiae dolore consequatur veniam!
+            </p>
+          </div>
+        </div>
+        <div className="cars-list">
+          {this.props.cars.map(this.buildCar)}
+        </div>
+      </div>
+    )
   }
 }
 
-export default CarsIndex;
+function mapStateToProps(state) {
+  return {
+    garageName: state.garageName
+  }
+}
+
+export default connect()(CarsIndex);
