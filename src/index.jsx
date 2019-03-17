@@ -9,6 +9,8 @@ import { createHistory as history } from 'history';
 
 import '../assets/stylesheets/application.scss';
 
+import CarsIndex from './containers/cars_index';
+
 import carsReducer from './reducers/cars_reducer';
 
 const initialState = {
@@ -28,7 +30,7 @@ ReactDOM.render(
   <Provider store={createStore(reducers, initialState, middlewares)}>
     <Router history={history}>
       <Switch>
-        TODO
+        <Route path="/" component={CarsIndex} />
       </Switch>
     </Router>
   </Provider>,
