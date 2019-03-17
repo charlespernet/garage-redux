@@ -9,6 +9,8 @@ import { createHistory as history } from 'history';
 
 import '../assets/stylesheets/application.scss';
 
+import carsReducer from './reducers/cars_reducer';
+
 const initialState = {
   garageName: 'Chez Regis',
   cars: []
