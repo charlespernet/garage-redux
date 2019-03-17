@@ -13,13 +13,8 @@ import CarsIndex from './containers/cars_index';
 
 import carsReducer from './reducers/cars_reducer';
 
-const initialState = {
-  garageName: 'Chez Regis',
-  cars: []
-}
-
 const reducers = combineReducers({
-  garageName: (state = null, action) => state,
+  garageName: (state = 'Chez Regis', action) => state,
   cars: carsReducer
 });
 
@@ -27,7 +22,7 @@ const middlewares = applyMiddleware(reduxPromise, logger);
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, initialState, middlewares)}>
+  <Provider store={createStore(reducers, {}, middlewares)}>
     <Router history={history}>
       <Switch>
         <Route path="/" component={CarsIndex} />
